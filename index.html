@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clara Bennett Tutoring — Math &amp; Science, One-on-One</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F1EEE6;
+    --ink: #23262B;
+    --ink-soft: #55585F;
+    --accent: #2F4468;
+    --accent-warm: #B8862E;
+    --line: #D8D2C4;
+    --card: #FFFFFF;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.55;
+  }
+  h1, h2, h3{
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    margin: 0 0 0.4em 0;
+    color: var(--ink);
+  }
+  a{ color: var(--accent); }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  header.site{
+    border-bottom: 1px solid var(--line);
+    position: sticky; top:0; background: rgba(241,238,230,0.92); backdrop-filter: blur(6px);
+    z-index: 10;
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 24px;
+  }
+  .brand{ font-family:'Source Serif 4', serif; font-size: 1.15rem; font-weight:700; }
+  nav ul{ list-style:none; display:flex; gap: 28px; margin:0; padding:0; }
+  nav a{ text-decoration:none; color: var(--ink-soft); font-size: 0.95rem; }
+  nav a:hover{ color: var(--ink); }
+  .nav-cta{
+    background: var(--accent); color: #fff !important; padding: 9px 18px;
+    border-radius: 4px; font-size: 0.9rem;
+  }
+
+  /* Hero */
+  .hero{ padding: 80px 0 64px; }
+  .hero .wrap{ display:grid; grid-template-columns: 1.3fr 0.9fr; gap: 56px; align-items: start; }
+  .hero-kicker{ color: var(--accent-warm); font-weight:600; font-size: 0.95rem; margin-bottom: 14px; }
+  .hero h1{ font-size: 2.6rem; line-height:1.15; max-width: 14ch; }
+  .hero p.lede{ font-size: 1.15rem; color: var(--ink-soft); max-width: 46ch; margin: 18px 0 30px; }
+  .btn{
+    display:inline-block; background: var(--accent); color:#fff; text-decoration:none;
+    padding: 13px 26px; border-radius: 4px; font-weight:600; font-size:1rem; border:none; cursor:pointer;
+  }
+  .btn:hover{ background:#253654; }
+  .btn-ghost{
+    background:none; color: var(--ink); border: 1px solid var(--line); margin-left: 12px;
+  }
+  .btn-ghost:hover{ border-color: var(--ink); }
+
+  .side-card{
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 26px; margin-top: 6px;
+  }
+  .side-card .row{ display:flex; justify-content:space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+  .side-card .row:last-child{ border-bottom:none; }
+  .side-card .row span:first-child{ color: var(--ink-soft); }
+
+  /* About */
+  section.about{ padding: 56px 0; border-top: 1px solid var(--line); }
+  .about .wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .about h2{ font-size: 1.7rem; }
+  .credentials{ list-style:none; margin: 18px 0 0; padding:0; }
+  .credentials li{ padding: 8px 0; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.95rem; }
+  .credentials li:first-child{ border-top:none; }
+
+  /* Subjects */
+  section.subjects{ padding: 56px 0; border-top: 1px solid var(--line); }
+  .subjects h2{ font-size: 1.7rem; margin-bottom: 30px; }
+  .subject-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .subject-card{ background: var(--card); border:1px solid var(--line); border-radius:6px; padding: 22px; }
+  .subject-card h3{ font-size: 1.05rem; margin-bottom: 8px; }
+  .subject-card p{ color: var(--ink-soft); font-size: 0.92rem; margin:0; }
+
+  /* Contact / booking */
+  section.contact{ padding: 64px 0 80px; border-top: 1px solid var(--line); }
+  .contact-head{ max-width: 60ch; margin-bottom: 30px; }
+  .contact-head h2{ font-size: 1.7rem; }
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items:start; }
+  .contact-info p{ color: var(--ink-soft); }
+  .contact-info a{ display:block; margin-top: 6px; font-weight:600; }
+
+  footer{ border-top: 1px solid var(--line); padding: 26px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; color: var(--ink-soft); font-size: 0.85rem; }
+
+  @media (max-width: 760px){
+    .hero .wrap, .about .wrap, .contact-grid{ grid-template-columns: 1fr; }
+    .subject-grid{ grid-template-columns: 1fr; }
+    .hero h1{ font-size: 2rem; }
+    nav ul{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <div class="brand">Clara Bennett Tutoring</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Book a session</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker">Math &amp; Science Tutoring, Grades 6&ndash;12</div>
+      <h1>Tutoring that meets students where they are.</h1>
+      <p class="lede">One-on-one sessions in algebra, geometry, chemistry, and physics, built around how your student actually learns — not a one-size-fits-all worksheet.</p>
+      <a class="btn" href="#contact">Book a free consultation</a>
+      <a class="btn btn-ghost" href="#about">More about Clara</a>
+    </div>
+    <div class="side-card">
+      <div class="row"><span>Format</span><span>In-person or online</span></div>
+      <div class="row"><span>Session length</span><span>60 minutes</span></div>
+      <div class="row"><span>First meeting</span><span>Free, 20 min</span></div>
+      <div class="row"><span>Now scheduling</span><span>Fall 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <h2>About Clara</h2>
+      <p>I've spent the last seven years teaching and tutoring math and science, including five years as a high school chemistry teacher. I started tutoring privately because one-on-one time is where students actually close their gaps — not in a classroom of thirty.</p>
+      <p>My approach is diagnostic first: before we touch homework, I find out exactly where a concept broke down, so we're not re-teaching things a student already understands.</p>
+    </div>
+    <div>
+      <h2>Background</h2>
+      <ul class="credentials">
+        <li>B.S. in Chemistry, University of Washington</li>
+        <li>State teaching certification, Secondary Science</li>
+        <li>7 years tutoring experience, 200+ students</li>
+        <li>Specializes in Algebra I &amp; II, Geometry, Chemistry, Physics</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="subjects" id="subjects">
+  <div class="wrap">
+    <h2>Subjects &amp; support</h2>
+    <div class="subject-grid">
+      <div class="subject-card">
+        <h3>Algebra I &amp; II</h3>
+        <p>Building fluency with equations, functions, and graphing before things compound.</p>
+      </div>
+      <div class="subject-card">
+        <h3>Geometry</h3>
+        <p>Proofs, spatial reasoning, and the vocabulary that trips most students up early on.</p>
+      </div>
+      <div class="subject-card">
+        <h3>Chemistry</h3>
+        <p>From stoichiometry to bonding, taught with the intuition behind the formulas.</p>
+      </div>
+      <div class="subject-card">
+        <h3>Physics</h3>
+        <p>Mechanics and forces, with an emphasis on problem-solving strategy, not memorization.</p>
+      </div>
+      <div class="subject-card">
+        <h3>Test prep</h3>
+        <p>SAT/ACT math sections, with timed practice and targeted review of weak spots.</p>
+      </div>
+      <div class="subject-card">
+        <h3>Homework support</h3>
+        <p>Ongoing weekly sessions to keep pace with a current class, not just crisis tutoring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-head">
+      <h2>Book a free consultation</h2>
+      <p>Pick a time below for a free 20-minute call. We'll talk about what your student needs, and whether it's a good fit — no pressure either way.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <!-- Calendly inline widget: replace the data-url with your own Calendly scheduling link -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/your-tutoring-business/free-consultation" style="min-width:280px;height:650px;"></div>
+      </div>
+      <div class="contact-info">
+        <p>Prefer email or a quick text first? That's fine too.</p>
+        <a href="mailto:clara@example.com">clara@example.com</a>
+        <a href="tel:+12065551234">(206) 555-1234</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Clara Bennett Tutoring</span>
+    <span>Seattle, WA</span>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+</body>
+</html>
