@@ -1,0 +1,21 @@
+LEARNING SQUID — GITHUB PAGES SETUP
+
+1. Upload index.html and CNAME to the root of the GitHub Pages publishing branch.
+2. In GitHub: Settings > Pages > Custom domain = learningsquid.com
+3. In Squarespace DNS, configure:
+   CNAME | Host/Name: www | Data/Target: contactlearningsquid-byte.github.io
+   Do not include https:// or a repository path.
+4. The apex/root domain should point to GitHub Pages. If GitHub already says “DNS valid for primary,” leave it alone. Otherwise use GitHub's current A records:
+   185.199.108.153
+   185.199.109.153
+   185.199.110.153
+   185.199.111.153
+5. Remove conflicting www records (such as Squarespace's default www CNAME) before adding the GitHub CNAME.
+6. Wait for DNS to propagate, return to GitHub Pages, click Check again, and enable Enforce HTTPS once available.
+
+CONTACT FORM
+
+The form posts through FormSubmit to contactlearningsquid@gmail.com.
+After publishing to the live site, submit the form once. FormSubmit will send an activation email to contactlearningsquid@gmail.com. Click that confirmation link. After activation, future submissions will be emailed automatically.
+
+FormSubmit is a third-party service. If you later want a dashboard, stronger spam controls, or to avoid exposing the email address in page source, switch to a Formspree form ID or another form backend.

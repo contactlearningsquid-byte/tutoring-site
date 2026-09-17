@@ -439,6 +439,13 @@
     textarea { min-height: 120px; resize: vertical; }
     .field { margin-bottom: 14px; }
     .form-note { margin-top: 12px; color: var(--muted); font-size: .78rem; }
+    .form-note a { color: var(--teal); font-weight: 800; text-decoration: none; }
+    .form-note a:hover { text-decoration: underline; }
+    .success-banner {
+      margin-bottom: 18px; padding: 14px 16px; border-radius: 14px;
+      background: #E9F8F4; border: 1px solid #A8DDD0; color: #174F4A; font-weight: 800;
+    }
+    .honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
 
     /* Footer */
     footer { padding: 36px 0 44px; border-top: 1px solid var(--line); }
@@ -717,27 +724,40 @@
         <div class="contact-copy">
           <div class="eyebrow">Free consultation</div>
           <h2>Tell us about the student.</h2>
-          <p>Use the form to draft an inquiry. Because this site is designed to work on GitHub Pages without a backend, the button opens your email app with the information filled in.</p>
+          <p>Send a quick note about what the student is working on and what you would like to improve. We’ll follow up to schedule a free consultation.</p>
           <div class="contact-points">
             <div class="contact-point">No commitment</div>
             <div class="contact-point">Discuss goals, subjects, and learning style</div>
             <div class="contact-point">Decide together whether the approach is a fit</div>
           </div>
+          <p><strong>Prefer email?</strong><br><a href="mailto:contactlearningsquid@gmail.com">contactlearningsquid@gmail.com</a></p>
         </div>
 
-        <form class="form-card" id="consultationForm">
+        <form class="form-card" id="consultationForm" action="https://formsubmit.co/contactlearningsquid@gmail.com" method="POST">
+          <div class="success-banner" id="formSuccess" hidden>Thanks — your consultation request was sent. We’ll be in touch soon.</div>
+
+          <input type="hidden" name="_subject" value="New Learning Squid consultation request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://learningsquid.com/?submitted=1#contact">
+          <input type="hidden" name="_url" value="https://learningsquid.com/">
+          <input class="honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
           <div class="form-row">
             <div class="field">
               <label for="name">Parent / student name</label>
               <input id="name" name="name" autocomplete="name" required>
             </div>
             <div class="field">
-              <label for="grade">Grade / level</label>
-              <input id="grade" name="grade" placeholder="e.g. 10th grade">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
             </div>
           </div>
 
           <div class="form-row">
+            <div class="field">
+              <label for="grade">Grade / level</label>
+              <input id="grade" name="grade" placeholder="e.g. 10th grade">
+            </div>
             <div class="field">
               <label for="subject">Primary subject</label>
               <select id="subject" name="subject">
@@ -748,6 +768,9 @@
                 <option>Not sure yet</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-row">
             <div class="field">
               <label for="format">Preferred format</label>
               <select id="format" name="format">
@@ -756,15 +779,19 @@
                 <option>Either</option>
               </select>
             </div>
+            <div class="field">
+              <label for="phone">Phone <span style="font-weight:600;color:#6A808C">(optional)</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555">
+            </div>
           </div>
 
           <div class="field">
             <label for="message">What would you like help with?</label>
-            <textarea id="message" name="message" placeholder="Tell us what the student is working on, what feels difficult, or what they want to explore."></textarea>
+            <textarea id="message" name="message" placeholder="Tell us what the student is working on, what feels difficult, or what they want to explore." required></textarea>
           </div>
 
-          <button class="btn" type="submit">Draft consultation email →</button>
-          <p class="form-note" id="formNote">Before publishing, replace the contact email in the CONFIG block near the bottom of this file.</p>
+          <button class="btn" type="submit">Send consultation request →</button>
+          <p class="form-note">This form is delivered to <a href="mailto:contactlearningsquid@gmail.com">contactlearningsquid@gmail.com</a>. The first live test will send an activation email to that inbox; confirm it once and future submissions will deliver automatically.</p>
         </form>
       </div>
     </section>
@@ -779,20 +806,11 @@
           <div class="footer-tag">Dive Deeper</div>
         </div>
       </div>
-      <div class="footer-right">© <span id="year"></span> Learning Squid. Project-based tutoring in math, physics &amp; engineering.</div>
+      <div class="footer-right">© <span id="year"></span> Learning Squid. Project-based tutoring in math, physics &amp; engineering.<br><a href="mailto:contactlearningsquid@gmail.com">contactlearningsquid@gmail.com</a></div>
     </div>
   </footer>
 
   <script>
-    /*
-      EDIT THESE VALUES BEFORE PUBLISHING.
-      This is intentionally the only place you need to change your contact info.
-    */
-    const CONFIG = {
-      email: "contactlearningsquid@gmail.com",
-      consultationSubject: "Learning Squid — Free Consultation"
-    };
-
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const menuButton = document.querySelector(".menu-btn");
@@ -812,32 +830,14 @@
       });
     });
 
-    document.getElementById("consultationForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-
-
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("submitted") === "1") {
+      const success = document.getElementById("formSuccess");
+      if (success) success.hidden = false;
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState({}, document.title, window.location.pathname + "#contact");
       }
-
-      const data = new FormData(event.currentTarget);
-      const body = [
-        "Hi Learning Squid,",
-        "",
-        "I'd like to schedule a free consultation.",
-        "",
-        `Name: ${data.get("name") || ""}`,
-        `Grade / level: ${data.get("grade") || ""}`,
-        `Subject: ${data.get("subject") || ""}`,
-        `Preferred format: ${data.get("format") || ""}`,
-        "",
-        "What we're looking for help with:",
-        data.get("message") || "",
-        "",
-        "Thanks!"
-      ].join("\n");
-
-      const mailto = `mailto:${encodeURIComponent(CONFIG.email)}?subject=${encodeURIComponent(CONFIG.consultationSubject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
-    });
+    }
   </script>
 </body>
 </html>
