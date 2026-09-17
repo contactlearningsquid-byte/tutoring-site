@@ -1,229 +1,845 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clara Bennett Tutoring — Math &amp; Science, One-on-One</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<style>
-  :root{
-    --bg: #F1EEE6;
-    --ink: #23262B;
-    --ink-soft: #55585F;
-    --accent: #2F4468;
-    --accent-warm: #B8862E;
-    --line: #D8D2C4;
-    --card: #FFFFFF;
-  }
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.55;
-  }
-  h1, h2, h3{
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-weight: 600;
-    margin: 0 0 0.4em 0;
-    color: var(--ink);
-  }
-  a{ color: var(--accent); }
-  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning Squid combines focused tutoring with hands-on projects in math, physics, and engineering. Dive deeper with personalized, project-based learning.">
+  <meta name="theme-color" content="#0B2D4A">
+  <title>Learning Squid | Project-Based Tutoring</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 
-  /* Nav */
-  header.site{
-    border-bottom: 1px solid var(--line);
-    position: sticky; top:0; background: rgba(241,238,230,0.92); backdrop-filter: blur(6px);
-    z-index: 10;
-  }
-  nav.wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 18px 24px;
-  }
-  .brand{ font-family:'Source Serif 4', serif; font-size: 1.15rem; font-weight:700; }
-  nav ul{ list-style:none; display:flex; gap: 28px; margin:0; padding:0; }
-  nav a{ text-decoration:none; color: var(--ink-soft); font-size: 0.95rem; }
-  nav a:hover{ color: var(--ink); }
-  .nav-cta{
-    background: var(--accent); color: #fff !important; padding: 9px 18px;
-    border-radius: 4px; font-size: 0.9rem;
-  }
+  <style>
+    :root {
+      --navy: #0B2D4A;
+      --navy-2: #123F60;
+      --teal: #0EA5A0;
+      --turquoise: #10B8C5;
+      --seafoam: #7ED6B7;
+      --gold: #F7A21B;
+      --ink: #10212D;
+      --muted: #5E7180;
+      --mist: #EAF9F8;
+      --paper: #FBFDFC;
+      --white: #FFFFFF;
+      --line: #DCE9E9;
+      --shadow: 0 24px 70px rgba(11, 45, 74, .14);
+      --radius: 28px;
+      --max: 1180px;
+    }
 
-  /* Hero */
-  .hero{ padding: 80px 0 64px; }
-  .hero .wrap{ display:grid; grid-template-columns: 1.3fr 0.9fr; gap: 56px; align-items: start; }
-  .hero-kicker{ color: var(--accent-warm); font-weight:600; font-size: 0.95rem; margin-bottom: 14px; }
-  .hero h1{ font-size: 2.6rem; line-height:1.15; max-width: 14ch; }
-  .hero p.lede{ font-size: 1.15rem; color: var(--ink-soft); max-width: 46ch; margin: 18px 0 30px; }
-  .btn{
-    display:inline-block; background: var(--accent); color:#fff; text-decoration:none;
-    padding: 13px 26px; border-radius: 4px; font-weight:600; font-size:1rem; border:none; cursor:pointer;
-  }
-  .btn:hover{ background:#253654; }
-  .btn-ghost{
-    background:none; color: var(--ink); border: 1px solid var(--line); margin-left: 12px;
-  }
-  .btn-ghost:hover{ border-color: var(--ink); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 96px 0; }
+    .section-tight { padding: 72px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: var(--teal);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--gold);
+    }
+    h1, h2, h3 { margin: 0; font-family: "Nunito", "Manrope", sans-serif; color: var(--navy); }
+    h1 { font-size: clamp(3rem, 7.2vw, 6.6rem); line-height: .95; letter-spacing: -.055em; }
+    h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); line-height: 1.02; letter-spacing: -.035em; }
+    h3 { font-size: 1.25rem; line-height: 1.2; }
+    p { margin: 0; }
+    .muted { color: var(--muted); }
+    .highlight { color: var(--teal); }
 
-  .side-card{
-    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
-    padding: 26px; margin-top: 6px;
-  }
-  .side-card .row{ display:flex; justify-content:space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
-  .side-card .row:last-child{ border-bottom:none; }
-  .side-card .row span:first-child{ color: var(--ink-soft); }
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 253, 252, .86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(220, 233, 233, .8);
+    }
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .brand img { width: 44px; height: 44px; }
+    .brand-copy { line-height: 1; }
+    .brand-name {
+      display: block;
+      font-family: "Nunito", sans-serif;
+      font-size: 1.16rem;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -.025em;
+    }
+    .brand-tag {
+      display: block;
+      margin-top: 6px;
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      color: var(--teal);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #385160;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links .nav-cta { color: #fff; }
+    .nav-cta, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 21px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(11,45,74,.12);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover, .nav-cta:hover { transform: translateY(-2px); background: var(--navy-2); box-shadow: 0 16px 30px rgba(11,45,74,.17); }
+    .btn.secondary { background: transparent; color: var(--navy); border: 1px solid #BFD8DA; box-shadow: none; }
+    .btn.secondary:hover { border-color: var(--teal); color: var(--teal); background: #fff; }
+    .menu-btn { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.4rem; cursor: pointer; }
 
-  /* About */
-  section.about{ padding: 56px 0; border-top: 1px solid var(--line); }
-  .about .wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: 56px; }
-  .about h2{ font-size: 1.7rem; }
-  .credentials{ list-style:none; margin: 18px 0 0; padding:0; }
-  .credentials li{ padding: 8px 0; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.95rem; }
-  .credentials li:first-child{ border-top:none; }
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 88px 0 74px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(16,184,197,.16), transparent 31%),
+        radial-gradient(circle at 0% 88%, rgba(126,214,183,.18), transparent 32%),
+        var(--paper);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      right: -190px;
+      bottom: -230px;
+      border: 60px solid rgba(16,184,197,.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 70px;
+    }
+    .hero h1 span { display: block; color: var(--teal); }
+    .hero-lede {
+      max-width: 640px;
+      margin-top: 26px;
+      color: #4D6472;
+      font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 28px;
+      color: #47606F;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    .trust-row span::before { content: "•"; color: var(--gold); margin-right: 8px; }
+    .hero-visual { position: relative; }
+    .photo-shell {
+      position: relative;
+      padding: 12px;
+      border-radius: 34px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      transform: rotate(1.2deg);
+    }
+    .photo-shell img {
+      width: 100%;
+      aspect-ratio: 4 / 4.4;
+      object-fit: cover;
+      object-position: 58% center;
+      border-radius: 24px;
+    }
+    .photo-badge {
+      position: absolute;
+      left: -34px;
+      bottom: 44px;
+      width: 176px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 18px 45px rgba(11,45,74,.24);
+      transform: rotate(-2deg);
+    }
+    .photo-badge strong { display: block; font-family: "Nunito", sans-serif; font-size: 2rem; line-height: 1; }
+    .photo-badge span { display: block; margin-top: 7px; color: #CFEFF0; font-size: .8rem; font-weight: 700; line-height: 1.35; }
+    .bubble {
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(16,184,197,.18);
+      border: 1px solid rgba(16,184,197,.22);
+    }
+    .bubble.one { width: 22px; height: 22px; right: -10px; top: 28px; }
+    .bubble.two { width: 11px; height: 11px; right: 22px; top: -16px; }
 
-  /* Subjects */
-  section.subjects{ padding: 56px 0; border-top: 1px solid var(--line); }
-  .subjects h2{ font-size: 1.7rem; margin-bottom: 30px; }
-  .subject-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .subject-card{ background: var(--card); border:1px solid var(--line); border-radius:6px; padding: 22px; }
-  .subject-card h3{ font-size: 1.05rem; margin-bottom: 8px; }
-  .subject-card p{ color: var(--ink-soft); font-size: 0.92rem; margin:0; }
+    /* Difference strip */
+    .difference-strip { background: var(--navy); color: #fff; }
+    .difference-grid { display: grid; grid-template-columns: 1.1fr repeat(3, .7fr); gap: 20px; align-items: center; }
+    .difference-title { font-family: "Nunito", sans-serif; font-size: 1.55rem; font-weight: 900; line-height: 1.1; }
+    .difference-title span { color: #75E3D1; }
+    .mini-stat { padding-left: 22px; border-left: 1px solid rgba(255,255,255,.18); }
+    .mini-stat strong { display: block; font-family: "Nunito", sans-serif; font-size: 1.02rem; }
+    .mini-stat span { display: block; margin-top: 3px; color: #BBD0DA; font-size: .82rem; }
 
-  /* Contact / booking */
-  section.contact{ padding: 64px 0 80px; border-top: 1px solid var(--line); }
-  .contact-head{ max-width: 60ch; margin-bottom: 30px; }
-  .contact-head h2{ font-size: 1.7rem; }
-  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items:start; }
-  .contact-info p{ color: var(--ink-soft); }
-  .contact-info a{ display:block; margin-top: 6px; font-weight:600; }
+    /* How it works */
+    .intro-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 78px; align-items: start; }
+    .section-copy { max-width: 570px; }
+    .section-copy p { margin-top: 20px; color: var(--muted); font-size: 1.05rem; }
+    .steps { display: grid; gap: 18px; }
+    .step {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+    }
+    .step-num {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--mist);
+      color: var(--teal);
+      font-family: "Nunito", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+    .step p { margin-top: 6px; color: var(--muted); font-size: .94rem; }
 
-  footer{ border-top: 1px solid var(--line); padding: 26px 0; }
-  footer .wrap{ display:flex; justify-content:space-between; color: var(--ink-soft); font-size: 0.85rem; }
+    /* 50/50 */
+    .fifty {
+      background: linear-gradient(135deg, #E8FAF7, #F6FBFA 56%, #FFF8E8);
+      border-top: 1px solid #D7ECEA;
+      border-bottom: 1px solid #D7ECEA;
+    }
+    .fifty-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .half {
+      position: relative;
+      overflow: hidden;
+      min-height: 340px;
+      padding: 38px;
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid rgba(11,45,74,.08);
+      box-shadow: 0 20px 50px rgba(11,45,74,.08);
+    }
+    .half.dark { background: var(--navy); color: #fff; }
+    .half-number {
+      font-family: "Nunito", sans-serif;
+      font-size: 4.7rem;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.07em;
+      color: var(--teal);
+    }
+    .half.dark .half-number { color: #75E3D1; }
+    .half h3 { margin-top: 10px; font-size: 1.7rem; }
+    .half.dark h3 { color: #fff; }
+    .half p { margin-top: 12px; color: var(--muted); max-width: 50ch; }
+    .half.dark p { color: #C7D8E1; }
+    .half ul { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 11px; }
+    .half li { display: flex; align-items: flex-start; gap: 10px; font-weight: 700; font-size: .92rem; }
+    .half li::before { content: "✓"; color: var(--gold); font-weight: 900; }
 
-  @media (max-width: 760px){
-    .hero .wrap, .about .wrap, .contact-grid{ grid-template-columns: 1fr; }
-    .subject-grid{ grid-template-columns: 1fr; }
-    .hero h1{ font-size: 2rem; }
-    nav ul{ display:none; }
-  }
-</style>
+    /* Projects */
+    .projects-head { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 38px; }
+    .projects-head p { max-width: 520px; color: var(--muted); }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      min-height: 300px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    .project-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--mist);
+      font-size: 1.6rem;
+    }
+    .project-card h3 { margin-top: 22px; font-size: 1.35rem; }
+    .project-card p { margin-top: 10px; color: var(--muted); font-size: .93rem; }
+    .project-card .tag {
+      display: inline-flex;
+      margin-top: 22px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #F2F8F8;
+      color: var(--teal);
+      font-size: .75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* Subjects */
+    .subjects { background: var(--navy); color: #fff; }
+    .subjects h2 { color: #fff; }
+    .subjects .eyebrow { color: #75E3D1; }
+    .subjects-lede { margin-top: 18px; color: #C1D3DC; max-width: 650px; }
+    .subject-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 38px; }
+    .subject-card {
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 22px;
+      background: rgba(255,255,255,.055);
+    }
+    .subject-card .num { color: #75E3D1; font-family: "Nunito", sans-serif; font-weight: 900; }
+    .subject-card h3 { margin-top: 34px; color: #fff; }
+    .subject-card p { margin-top: 8px; color: #B8CDD6; font-size: .9rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 72px; align-items: center; }
+    .about-mark {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      border-radius: 34px;
+      background: linear-gradient(150deg, #DDF8F3, #EFFAF8 65%, #FFF2D2);
+      overflow: hidden;
+    }
+    .about-mark img { width: 230px; filter: drop-shadow(0 20px 30px rgba(11,45,74,.13)); }
+    .about-mark::before, .about-mark::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(16,184,197,.18);
+      border-radius: 999px;
+    }
+    .about-mark::before { width: 310px; height: 310px; }
+    .about-mark::after { width: 370px; height: 370px; }
+    .about-copy p { margin-top: 18px; color: var(--muted); font-size: 1.02rem; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; }
+    .cred {
+      padding: 17px 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #385261;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    .cred strong { color: var(--navy); }
+
+    /* CTA */
+    .cta-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 56px;
+      border-radius: 34px;
+      background: linear-gradient(120deg, var(--teal), #0A8999);
+      color: #fff;
+    }
+    .cta-shell::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -130px;
+      top: -155px;
+      border: 50px solid rgba(255,255,255,.09);
+      border-radius: 50%;
+    }
+    .cta-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; }
+    .cta-shell h2 { color: #fff; max-width: 720px; }
+    .cta-shell p { margin-top: 14px; color: #DDF8F5; max-width: 650px; }
+    .cta-shell .btn { background: #fff; color: var(--navy); box-shadow: none; white-space: nowrap; }
+
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; }
+    .contact-copy p { margin-top: 18px; color: var(--muted); }
+    .contact-points { display: grid; gap: 12px; margin-top: 28px; }
+    .contact-point { display: flex; gap: 11px; color: #3C5967; font-weight: 700; }
+    .contact-point::before { content: "✓"; color: var(--teal); }
+    .form-card { padding: 28px; border-radius: 26px; background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(11,45,74,.08); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; margin-bottom: 7px; color: var(--navy); font-size: .8rem; font-weight: 800; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #CADDDD;
+      border-radius: 14px;
+      background: #FBFDFD;
+      color: var(--ink);
+      padding: 13px 14px;
+      outline: none;
+      transition: border .2s ease, box-shadow .2s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(14,165,160,.12); }
+    textarea { min-height: 120px; resize: vertical; }
+    .field { margin-bottom: 14px; }
+    .form-note { margin-top: 12px; color: var(--muted); font-size: .78rem; }
+
+    /* Footer */
+    footer { padding: 36px 0 44px; border-top: 1px solid var(--line); }
+    .footer-grid { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-left { display: flex; align-items: center; gap: 12px; }
+    .footer-left img { width: 42px; }
+    .footer-title { font-family: "Nunito", sans-serif; font-weight: 900; color: var(--navy); }
+    .footer-tag { color: var(--teal); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-right { color: var(--muted); text-align: right; font-size: .82rem; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .intro-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 56px; }
+      .hero-copy { max-width: 760px; }
+      .hero-visual { max-width: 690px; margin: 0 auto; }
+      .photo-shell img { aspect-ratio: 16 / 10.5; object-position: center; }
+      .difference-grid { grid-template-columns: 1fr 1fr; }
+      .mini-stat:nth-child(2) { border-left: 0; padding-left: 0; }
+      .fifty-grid { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .subject-grid { grid-template-columns: 1fr 1fr; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .cta-grid .btn { justify-self: start; }
+      .about-mark { min-height: 360px; }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 72px 0; }
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .nav { min-height: 70px; }
+      .menu-btn { display: block; }
+      .nav-links {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 76px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255,255,255,.98);
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px 12px; border-radius: 12px; }
+      .nav-links .nav-cta { margin-top: 4px; text-align: center; }
+      .hero { padding-top: 60px; }
+      .hero-grid { gap: 42px; }
+      .photo-badge { left: 14px; bottom: 20px; width: 150px; }
+      .difference-grid { grid-template-columns: 1fr; gap: 22px; }
+      .mini-stat { border-left: 0; padding-left: 0; }
+      .projects-head { display: block; }
+      .projects-head p { margin-top: 16px; }
+      .project-grid, .subject-grid, .cred-grid, .form-row { grid-template-columns: 1fr; }
+      .half, .cta-shell { padding: 28px; }
+      .cta-shell { border-radius: 26px; }
+      .footer-grid { align-items: flex-start; flex-direction: column; }
+      .footer-right { text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="wrap nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Learning Squid home">
+        <img src="assets/logo-mark.svg" alt="">
+        <span class="brand-copy">
+          <span class="brand-name">Learning Squid</span>
+          <span class="brand-tag">Dive Deeper</span>
+        </span>
+      </a>
 
-<header class="site">
-  <nav class="wrap">
-    <div class="brand">Clara Bennett Tutoring</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#subjects">Subjects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a class="nav-cta" href="#contact">Book a session</a>
-  </nav>
-</header>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
 
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <div class="hero-kicker">Math &amp; Science Tutoring, Grades 6&ndash;12</div>
-      <h1>Tutoring that meets students where they are.</h1>
-      <p class="lede">One-on-one sessions in algebra, geometry, chemistry, and physics, built around how your student actually learns — not a one-size-fits-all worksheet.</p>
-      <a class="btn" href="#contact">Book a free consultation</a>
-      <a class="btn btn-ghost" href="#about">More about Clara</a>
-    </div>
-    <div class="side-card">
-      <div class="row"><span>Format</span><span>In-person or online</span></div>
-      <div class="row"><span>Session length</span><span>60 minutes</span></div>
-      <div class="row"><span>First meeting</span><span>Free, 20 min</span></div>
-      <div class="row"><span>Now scheduling</span><span>Fall 2026</span></div>
-    </div>
-  </div>
-</section>
+      <div class="nav-links" id="navLinks">
+        <a href="#approach">Our approach</a>
+        <a href="#projects">Projects</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Free consultation</a>
+      </div>
+    </nav>
+  </header>
 
-<section class="about" id="about">
-  <div class="wrap">
-    <div>
-      <h2>About Clara</h2>
-      <p>I've spent the last seven years teaching and tutoring math and science, including five years as a high school chemistry teacher. I started tutoring privately because one-on-one time is where students actually close their gaps — not in a classroom of thirty.</p>
-      <p>My approach is diagnostic first: before we touch homework, I find out exactly where a concept broke down, so we're not re-teaching things a student already understands.</p>
-    </div>
-    <div>
-      <h2>Background</h2>
-      <ul class="credentials">
-        <li>B.S. in Chemistry, University of Washington</li>
-        <li>State teaching certification, Secondary Science</li>
-        <li>7 years tutoring experience, 200+ students</li>
-        <li>Specializes in Algebra I &amp; II, Geometry, Chemistry, Physics</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Project-based tutoring</div>
+          <h1>Go beyond the worksheet. <span>Dive deeper.</span></h1>
+          <p class="hero-lede">Learning Squid combines focused one-on-one tutoring with hands-on projects so students don’t just memorize concepts — they use them, test them, and make them stick.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Book a free consultation <span aria-hidden="true">→</span></a>
+            <a class="btn secondary" href="#approach">See how it works</a>
+          </div>
+          <div class="trust-row" aria-label="Tutoring focus areas">
+            <span>Math</span>
+            <span>Physics</span>
+            <span>Engineering</span>
+            <span>In-person &amp; online</span>
+          </div>
+        </div>
 
-<section class="subjects" id="subjects">
-  <div class="wrap">
-    <h2>Subjects &amp; support</h2>
-    <div class="subject-grid">
-      <div class="subject-card">
-        <h3>Algebra I &amp; II</h3>
-        <p>Building fluency with equations, functions, and graphing before things compound.</p>
+        <div class="hero-visual" aria-label="Hands-on project-based tutoring">
+          <div class="photo-shell">
+            <img src="assets/project-based-tutoring.jpg" alt="Student and tutor working together on an electronics project in a classroom">
+            <div class="photo-badge"><strong>50 / 50</strong><span>focused tutoring + hands-on learning</span></div>
+          </div>
+          <span class="bubble one" aria-hidden="true"></span>
+          <span class="bubble two" aria-hidden="true"></span>
+        </div>
       </div>
-      <div class="subject-card">
-        <h3>Geometry</h3>
-        <p>Proofs, spatial reasoning, and the vocabulary that trips most students up early on.</p>
-      </div>
-      <div class="subject-card">
-        <h3>Chemistry</h3>
-        <p>From stoichiometry to bonding, taught with the intuition behind the formulas.</p>
-      </div>
-      <div class="subject-card">
-        <h3>Physics</h3>
-        <p>Mechanics and forces, with an emphasis on problem-solving strategy, not memorization.</p>
-      </div>
-      <div class="subject-card">
-        <h3>Test prep</h3>
-        <p>SAT/ACT math sections, with timed practice and targeted review of weak spots.</p>
-      </div>
-      <div class="subject-card">
-        <h3>Homework support</h3>
-        <p>Ongoing weekly sessions to keep pace with a current class, not just crisis tutoring.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="contact-head">
-      <h2>Book a free consultation</h2>
-      <p>Pick a time below for a free 20-minute call. We'll talk about what your student needs, and whether it's a good fit — no pressure either way.</p>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <!-- Calendly inline widget: replace the data-url with your own Calendly scheduling link -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/your-tutoring-business/free-consultation" style="min-width:280px;height:650px;"></div>
+    <section class="difference-strip section-tight" aria-label="Why Learning Squid is different">
+      <div class="wrap difference-grid">
+        <div class="difference-title">Tutoring built for students who want to <span>understand more.</span></div>
+        <div class="mini-stat"><strong>Understand it</strong><span>Target the concept, not just the assignment.</span></div>
+        <div class="mini-stat"><strong>Build it</strong><span>Use the idea in a guided real-world project.</span></div>
+        <div class="mini-stat"><strong>Explain it</strong><span>Turn knowledge into lasting confidence.</span></div>
       </div>
-      <div class="contact-info">
-        <p>Prefer email or a quick text first? That's fine too.</p>
-        <a href="mailto:clara@example.com">clara@example.com</a>
-        <a href="tel:+12065551234">(206) 555-1234</a>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="wrap intro-grid">
+        <div class="section-copy">
+          <div class="eyebrow">A different kind of tutoring</div>
+          <h2>Homework help is useful. <span class="highlight">Real understanding is better.</span></h2>
+          <p>Traditional tutoring often stops once the student can finish the worksheet. Learning Squid goes one step further: we connect the academic concept to something the student can build, measure, test, or explain.</p>
+          <p>The goal is not to add more schoolwork. It is to make schoolwork finally feel connected to something real.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">01</div>
+            <div><h3>Find the gap</h3><p>We identify what is actually holding the student back and focus the session there.</p></div>
+          </article>
+          <article class="step">
+            <div class="step-num">02</div>
+            <div><h3>Build the skill</h3><p>We work through problems together until the student can reason through them independently.</p></div>
+          </article>
+          <article class="step">
+            <div class="step-num">03</div>
+            <div><h3>Put it to work</h3><p>We use a project, experiment, or design challenge to make the concept tangible and memorable.</p></div>
+          </article>
+        </div>
       </div>
+    </section>
+
+    <section class="section fifty" id="method">
+      <div class="wrap">
+        <div class="fifty-grid">
+          <article class="half dark">
+            <div class="half-number">50%</div>
+            <h3>Focused tutoring</h3>
+            <p>Targeted support around the student’s current classes, weak spots, and goals.</p>
+            <ul>
+              <li>Homework and concept support</li>
+              <li>Test preparation and problem-solving strategy</li>
+              <li>Foundational skill building</li>
+              <li>Challenge work for advanced students</li>
+            </ul>
+          </article>
+
+          <article class="half">
+            <div class="half-number">50%</div>
+            <h3>Project-based learning</h3>
+            <p>Guided hands-on work that asks the student to apply what they just learned.</p>
+            <ul>
+              <li>Build and troubleshoot simple circuits</li>
+              <li>Measure motion, forces, and real data</li>
+              <li>Use math to design, predict, and optimize</li>
+              <li>Practice explaining how and why something works</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="projects-head">
+          <div>
+            <div class="eyebrow">Learning by doing</div>
+            <h2>Projects give the lesson a reason to matter.</h2>
+          </div>
+          <p>Projects are matched to the student’s age, interests, and current coursework. The point is not complexity — it is connection.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">⚡</div>
+            <h3>Circuits &amp; sensors</h3>
+            <p>Use voltage, resistance, logic, and measurement to build small working systems and troubleshoot them together.</p>
+            <span class="tag">Physics + engineering</span>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">📐</div>
+            <h3>Math through design</h3>
+            <p>Turn algebra, geometry, functions, and optimization into design constraints, predictions, and measurable outcomes.</p>
+            <span class="tag">Math + problem solving</span>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon" aria-hidden="true">🧪</div>
+            <h3>Physics experiments</h3>
+            <p>Collect real data on motion, forces, energy, or waves, then use the student’s class concepts to explain what happened.</p>
+            <span class="tag">Physics + data</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section subjects" id="subjects">
+      <div class="wrap">
+        <div class="eyebrow">Subjects</div>
+        <h2>Strong fundamentals. More room to explore.</h2>
+        <p class="subjects-lede">Learning Squid is built around STEM subjects where understanding the “why” makes everything else easier.</p>
+
+        <div class="subject-grid">
+          <article class="subject-card"><span class="num">01</span><h3>Math</h3><p>Algebra, geometry, trigonometry, precalculus, calculus, and problem-solving.</p></article>
+          <article class="subject-card"><span class="num">02</span><h3>Physics</h3><p>Mechanics, electricity, waves, energy, and conceptual problem-solving.</p></article>
+          <article class="subject-card"><span class="num">03</span><h3>Engineering</h3><p>Circuits, electronics, design thinking, prototyping, and technical curiosity.</p></article>
+          <article class="subject-card"><span class="num">04</span><h3>Academic support</h3><p>Homework, test prep, study habits, challenge work, and long-term confidence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-mark" aria-hidden="true">
+          <img src="assets/logo-mark.svg" alt="">
+        </div>
+
+        <div class="about-copy">
+          <div class="eyebrow">The idea behind Learning Squid</div>
+          <h2>Curiosity goes further when students can <span class="highlight">touch the idea.</span></h2>
+          <p>Learning Squid was created around a simple belief: students learn more deeply when tutoring connects the classroom to the real world.</p>
+          <p>Sessions are led with an engineering mindset — break the problem down, understand the fundamentals, test an idea, and keep improving it. That approach works for a student catching up, getting ahead, or simply wanting to know how things really work.</p>
+
+          <div class="cred-grid">
+            <div class="cred"><strong>Engineering-led</strong><br>Real technical problem-solving experience</div>
+            <div class="cred"><strong>Student-focused</strong><br>One-on-one attention and pacing</div>
+            <div class="cred"><strong>Hands-on</strong><br>Projects chosen to reinforce the lesson</div>
+            <div class="cred"><strong>Curiosity-first</strong><br>Room to ask “what if?” and go deeper</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="wrap">
+        <div class="cta-shell">
+          <div class="cta-grid">
+            <div>
+              <h2>Looking for more than another hour of homework help?</h2>
+              <p>Start with a free consultation. We’ll talk about what the student is working on, where they are getting stuck, and whether Learning Squid is a good fit.</p>
+            </div>
+            <a class="btn" href="#contact">Start with a free consultation →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow">Free consultation</div>
+          <h2>Tell us about the student.</h2>
+          <p>Use the form to draft an inquiry. Because this site is designed to work on GitHub Pages without a backend, the button opens your email app with the information filled in.</p>
+          <div class="contact-points">
+            <div class="contact-point">No commitment</div>
+            <div class="contact-point">Discuss goals, subjects, and learning style</div>
+            <div class="contact-point">Decide together whether the approach is a fit</div>
+          </div>
+        </div>
+
+        <form class="form-card" id="consultationForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Parent / student name</label>
+              <input id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="grade">Grade / level</label>
+              <input id="grade" name="grade" placeholder="e.g. 10th grade">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="subject">Primary subject</label>
+              <select id="subject" name="subject">
+                <option>Math</option>
+                <option>Physics</option>
+                <option>Engineering</option>
+                <option>General STEM support</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="format">Preferred format</label>
+              <select id="format" name="format">
+                <option>In person</option>
+                <option>Online</option>
+                <option>Either</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">What would you like help with?</label>
+            <textarea id="message" name="message" placeholder="Tell us what the student is working on, what feels difficult, or what they want to explore."></textarea>
+          </div>
+
+          <button class="btn" type="submit">Draft consultation email →</button>
+          <p class="form-note" id="formNote">Before publishing, replace the contact email in the CONFIG block near the bottom of this file.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div class="footer-left">
+        <img src="assets/logo-mark.svg" alt="">
+        <div>
+          <div class="footer-title">Learning Squid</div>
+          <div class="footer-tag">Dive Deeper</div>
+        </div>
+      </div>
+      <div class="footer-right">© <span id="year"></span> Learning Squid. Project-based tutoring in math, physics &amp; engineering.</div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<footer>
-  <div class="wrap">
-    <span>&copy; 2026 Clara Bennett Tutoring</span>
-    <span>Seattle, WA</span>
-  </div>
-</footer>
+  <script>
+    /*
+      EDIT THESE VALUES BEFORE PUBLISHING.
+      This is intentionally the only place you need to change your contact info.
+    */
+    const CONFIG = {
+      email: "YOUR_EMAIL_HERE",
+      consultationSubject: "Learning Squid — Free Consultation"
+    };
 
-<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuButton = document.querySelector(".menu-btn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    document.getElementById("consultationForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!CONFIG.email || CONFIG.email === "YOUR_EMAIL_HERE") {
+        alert("Add your real email address to the CONFIG block at the bottom of index.html before using the contact form.");
+        return;
+      }
+
+      const data = new FormData(event.currentTarget);
+      const body = [
+        "Hi Learning Squid,",
+        "",
+        "I'd like to schedule a free consultation.",
+        "",
+        `Name: ${data.get("name") || ""}`,
+        `Grade / level: ${data.get("grade") || ""}`,
+        `Subject: ${data.get("subject") || ""}`,
+        `Preferred format: ${data.get("format") || ""}`,
+        "",
+        "What we're looking for help with:",
+        data.get("message") || "",
+        "",
+        "Thanks!"
+      ].join("\n");
+
+      const mailto = `mailto:${encodeURIComponent(CONFIG.email)}?subject=${encodeURIComponent(CONFIG.consultationSubject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
 </body>
 </html>
