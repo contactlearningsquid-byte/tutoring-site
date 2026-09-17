@@ -815,9 +815,7 @@
     document.getElementById("consultationForm").addEventListener("submit", (event) => {
       event.preventDefault();
 
-      if (!CONFIG.email || CONFIG.email === "YOUR_EMAIL_HERE") {
-        alert("Add your real email address to the CONFIG block at the bottom of index.html before using the contact form.");
-        return;
+
       }
 
       const data = new FormData(event.currentTarget);
