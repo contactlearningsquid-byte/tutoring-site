@@ -1,0 +1,5 @@
+Place the existing Learning Squid tutoring photo here with this exact filename:
+project-based-tutoring.jpg
+
+For speed, export it at about 1200-1600 px wide and target roughly 150-300 KB.
+The homepage already reserves the image dimensions and loads it with high priority to reduce layout shift.
